@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="Search">
+    <page>/Search.jspx</page>
+    <input-page-parameter>
+      <from-value>#{param.ParamOrgId}</from-value>
+      <to-value>#{viewScope.OrgId}</to-value>
+    </input-page-parameter>
+    <input-page-parameter>
+      <from-value>#{param.ParamUserId}</from-value>
+      <to-value>#{viewScope.UserId}</to-value>
+    </input-page-parameter>
+    <input-page-parameter>
+      <from-value>#{param.ParamRespId}</from-value>
+      <to-value>#{viewScope.RespId}</to-value>
+    </input-page-parameter>
+    <input-page-parameter>
+      <from-value>#{param.ParamRespApplId}</from-value>
+      <to-value>#{viewScope.RespApplId}</to-value>
+    </input-page-parameter>
+  </view>
+  <view id="Edit">
+    <page>/Edit.jspx</page>
+  </view>
+  <view id="Create">
+    <page>/Create.jspx</page>
+  </view>
+  <control-flow-rule id="__1">
+    <from-activity-id id="__2">Search</from-activity-id>
+    <control-flow-case id="__4">
+      <from-outcome id="__5">GoToEdit</from-outcome>
+      <to-activity-id id="__3">Edit</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__11">
+      <from-outcome id="__13">gocreat</from-outcome>
+      <to-activity-id id="__12">Create</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__6">
+    <from-activity-id id="__7">Edit</from-activity-id>
+    <control-flow-case id="__9">
+      <from-outcome id="__10">BakToEdit</from-outcome>
+      <to-activity-id id="__8">Search</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__14">
+    <from-activity-id id="__15">Create</from-activity-id>
+    <control-flow-case id="__16">
+      <from-outcome id="__18">back</from-outcome>
+      <to-activity-id id="__17">Search</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__22">
+    <managed-bean-name id="__20">backingBean</managed-bean-name>
+    <managed-bean-class id="__21">mnj.mfg.view.backing_bean.Main.backingBean</managed-bean-class>
+    <managed-bean-scope id="__19">pageFlow</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

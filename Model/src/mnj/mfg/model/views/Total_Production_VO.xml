@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Total_Production_VO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="mnj.mfg.model.views.Total_Production_VO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery>
+    <![CDATA[select sum(production)production
+ from(SELECT DISTINCT oph.gwp_ge_id, oph.gwp_ge_number, oph.ge_date,
+                         (CASE
+                            WHEN opl.wash_type = 'Final Wash'
+                               THEN wet.batch_qty
+                            ELSE dry.production_qty
+                         END) production,
+                         prodh.header_id
+                    FROM mnj_gwp_mfg_gevaluation oph,
+                         mnj_mfg_routing_plan_det opl,
+                         mnj_gwp_mfg_ge_obsline opll,
+                         mnj_mfg_gwpprod_wet_d wet,
+                         mnj_mfg_gwpproduction_h prodh,
+                         mnj_mfg_gwpprod_wet_l prodl,
+                         mnj_mfg_gwpproduction dry
+                   WHERE oph.gwp_ge_id = opl.header_id
+                     AND oph.gwp_ge_id = opll.gwp_ge_id
+                     AND prodh.header_id = prodl.header_id(+)
+                     AND prodh.header_id = dry.header_id
+                     AND prodl.wet_trans_id = wet.wet_trans_id(+)
+                     AND opl.seq = (SELECT MAX (opll.seq)
+                                      FROM mnj_mfg_routing_plan_det opll
+                                     WHERE opl.header_id = opll.header_id)
+                     AND oph.style =
+                            CASE
+                               WHEN opl.wash_type = 'Final Wash'
+                                  THEN wet.style
+                               ELSE dry.style_name
+                            END
+                     AND oph.customer_id =
+                            CASE
+                               WHEN opl.wash_type = 'Final Wash'
+                                  THEN wet.buyer_id
+                               ELSE dry.buyer_id
+                            END
+                     AND oph.wash =
+                            CASE
+                               WHEN opl.wash_type = 'Final Wash'
+                                  THEN wet.wash
+                               ELSE dry.wash
+                            END
+                     AND oph.color =
+                            CASE
+                               WHEN opl.wash_type = 'Final Wash'
+                                  THEN wet.color_wash
+                               ELSE dry.color
+                            END
+                     AND (   dry.minor_operations = opl.minor_operations
+                          OR opl.wash_type = wet.wash_type
+                         )
+                     AND NVL (opll.ob_posted, 'N') = 'N'
+                     AND oph.gwp_ge_id = :1
+)]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="Production"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="PRODUCTION"
+    Expression="PRODUCTION"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

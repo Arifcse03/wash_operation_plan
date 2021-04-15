@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="CreatePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="HederVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="HederVO1Iterator"/>
+    <iterator Binds="LineVOStyleDetail1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="LineVOStyleDetail1Iterator"/>
+    <searchRegion Binds="LineVOStyleDetail1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="LineVOStyleDetail1Query"/>
+  </executables>
+  <bindings>
+    <listOfValues StaticList="false" IterBinding="HederVO1Iterator"
+                  Uses="LOV_OrderNumber" id="OrderNumber"/>
+    <listOfValues StaticList="false" IterBinding="HederVO1Iterator"
+                  Uses="LOV_CustomerName" id="CustomerName"/>
+    <attributeValues IterBinding="HederVO1Iterator" id="GwpGeNumber">
+      <AttrNames>
+        <Item Value="GwpGeNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HederVO1Iterator" id="GeDate">
+      <AttrNames>
+        <Item Value="GeDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HederVO1Iterator" id="SalesorderId">
+      <AttrNames>
+        <Item Value="SalesorderId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HederVO1Iterator" id="Quantity">
+      <AttrNames>
+        <Item Value="Quantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HederVO1Iterator" id="Season">
+      <AttrNames>
+        <Item Value="Season"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HederVO1Iterator" id="Brand">
+      <AttrNames>
+        <Item Value="Brand"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="LineVOStyleDetail1Iterator" id="LineVOStyleDetail1">
+      <nodeDefinition DefName="mnj.mfg.model.views.LineVOStyleDetail"
+                      Name="LineVOStyleDetail10">
+        <AttrNames>
+          <Item Value="WashName"/>
+          <Item Value="WashingUnitName"/>
+          <Item Value="WashingStartDate"/>
+          <Item Value="StitchingUnit"/>
+          <Item Value="StitchingStartDate"/>
+          <Item Value="ViewShipmentDetail"/>
+          <Item Value="TemCode"/>
+          <Item Value="Description"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="LineVOStyleDetail1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="WashLovVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="mnj.mfg.model.lov.views.WashLovVORowImpl"
+  ComponentClass="mnj.mfg.model.lov.views.WashLovVOImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="mnj.mfg.model.lov.views.WashLovVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="P_STYLE"
+    Kind="where"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="P_Season"
+    Kind="where"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="P_Buyer_Id"
+    Kind="where"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <SQLQuery>
+    <![CDATA[/* Formatted on 1/9/2020 2:45:48 PM (QP5 v5.256.13226.35510) */
+--select distinct h.wash from MNJ_MFG_WASH_RECIPE_H h
+--where h.wash is not null
+--and h.style_name = :P_STYLE
+--and h.season = :P_Season
+--and h.customer_id = :P_Buyer_Id
+--order by 1
+------------------------ added on 2 may 19 ------------------------
+
+  SELECT DISTINCT
+  /**
+  Commented by Sakibul Islam on 09-Jan-2020 wash taken from oe_order_lines_all
+  **/
+--         TRIM (
+--            SUBSTR (
+--               msib.description,
+--               INSTR (msib.description, ':') + 1,
+--                 INSTR (
+--                    SUBSTR (msib.description,
+--                            INSTR (msib.description, ':') + 1),
+--                    ':',
+--                    1,
+--                    1)
+--               - 1))
+--            Wash,
+--         OOLA.attribute7 Wash  -- commented on 30.Jan.20 by Mr. Fatin 
+        msib.attribute17 WASH         
+         
+         
+    FROM OE_ORDER_HEADERS_ALL OOHA,
+         OE_ORDER_LINES_ALL OOLA,
+         MTL_SYSTEM_ITEMS MSIb
+   WHERE     OOHA.HEADER_ID = OOLA.HEADER_ID
+      --   and MSIb.INVENTORY_ITEM_ID = OOLA.ORDERED_ITEM_ID     -- commented on 18 feb 20 to restrict coming of wrong color for wash
+        and MSIb.INVENTORY_ITEM_ID = OOLA.INVENTORY_ITEM_ID    -- added on 18 feb 20
+         AND MSIb.ORGANIZATION_ID = 353
+         AND ooha.ATTRIBUTE3 = 'BPO'
+         AND ooha.SHIPPING_INSTRUCTIONS = :P_STYLE
+         AND ooha.ATTRIBUTE4 = :P_Season
+         AND ooha.SOLD_TO_ORG_ID = :P_Buyer_Id
+ORDER BY 1]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="Wash"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="WASH"
+    Expression="WASH"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

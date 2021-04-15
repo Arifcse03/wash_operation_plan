@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LineEOStyleDetail"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="MNJ_GWP_MFG_GE_OBSLINE"
+  AliasName="LineEOStyleDetail"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="mnj.mfg.model.entities.LineEOStyleDetailImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access|DML"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="GwpGeId"
+    Precision="15"
+    Scale="0"
+    ColumnName="GWP_GE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GwpGeWaslineId"
+    Precision="15"
+    Scale="0"
+    ColumnName="GWP_GE_WASLINE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GwpGeObid"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="GWP_GE_OBID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE"
+    PrimaryKey="true"
+    ChangeIndicator="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Salesorder"
+    Precision="15"
+    Scale="0"
+    ColumnName="SALESORDER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SoLine"
+    Precision="15"
+    Scale="0"
+    ColumnName="SO_LINE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GwpUnitId"
+    Precision="15"
+    ColumnName="GWP_UNIT_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="15"
+    Scale="0"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="15"
+    Scale="0"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ObsNo"
+    Precision="250"
+    ColumnName="OBS_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Quantity"
+    ColumnName="QUANTITY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PostStatus"
+    Precision="2"
+    ColumnName="POST_STATUS"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="JobStatus"
+    Precision="5"
+    ColumnName="JOB_STATUS"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WipEntityId"
+    ColumnName="WIP_ENTITY_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="JobReleasedDate"
+    ColumnName="JOB_RELEASED_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WashName"
+    Precision="20"
+    ColumnName="WASH_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WashingUnitName"
+    Precision="50"
+    ColumnName="WASHING_UNIT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WashingStartDate"
+    ColumnName="WASHING_START_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="StitchingUnit"
+    Precision="50"
+    ColumnName="STITCHING_UNIT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="StitchingStartDate"
+    ColumnName="STITCHING_START_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ViewShipmentDetail"
+    Precision="20"
+    ColumnName="VIEW_SHIPMENT_DETAIL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TemCode"
+    Precision="50"
+    ColumnName="TEM_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShipmentQty"
+    ColumnName="SHIPMENT_QTY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShipmentDate"
+    ColumnName="SHIPMENT_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CountryChange"
+    Precision="50"
+    ColumnName="COUNTRY_CHANGE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ItemId"
+    ColumnName="ITEM_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CurrentPlanQty"
+    ColumnName="CURRENT_PLAN_QTY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BalanceQty"
+    ColumnName="BALANCE_QTY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BpoId"
+    ColumnName="BPO_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GE_OBSLINE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="HederEO"
+    Association="mnj.mfg.model.entities.MnjGwpMfgObslineFkAssoc"
+    AssociationEnd="mnj.mfg.model.entities.MnjGwpMfgObslineFkAssoc.HederEO"
+    AssociationOtherEnd="mnj.mfg.model.entities.MnjGwpMfgObslineFkAssoc.LineEOStyleDetail"
+    Type="mnj.mfg.model.entities.HederEOImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="MnjGwpMfgGeObslinePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="MNJ_GWP_MFG_GE_OBSLINE_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.LineEOStyleDetail.GwpGeObid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC00333781">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C00333781"/>
+      <Attr Name="_checkCondition" Value='"GWP_GE_OBID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.LineEOStyleDetail.GwpGeObid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="MnjGwpMfgGeObslineFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="MNJ_GWP_MFG_GE_WASHLINE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="MNJ_GWP_MFG_GE_OBSLINE_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.LineEOStyleDetail.GwpGeWaslineId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="MnjGwpMfgObslineFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="MNJ_GWP_MFG_GEVALUATION_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="MNJ_GWP_MFG_OBSLINE_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.LineEOStyleDetail.GwpGeId"/>
+    </AttrArray>
+  </Key>
+</Entity>

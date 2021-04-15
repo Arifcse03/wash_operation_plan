@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OspStyleLov"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  FetchMode="FETCH_AS_NEEDED"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="mnj.mfg.model.lov.views.OspStyleLov_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery>
+    <![CDATA[SELECT DISTINCT (SELECT DISTINCT hp.known_as
+          FROM hz_cust_accounts hca, hz_parties hp, ar_customers ac
+         WHERE     hp.PARTY_ID = hca.PARTY_ID
+               AND hca.CUST_ACCOUNT_ID = ac.CUSTOMER_ID
+               AND ac.CUSTOMER_ID = MMOH.BUYER_D ) Buyer_Name,
+       MMOH.BUYER_D BUYER_ID,
+       MMOH.STYLE Style,
+       MMOH.SEASON Season,
+       MMOH.BRAND Brand,
+       (SELECT DISTINCT ac.customer_name
+          FROM hz_cust_accounts hca, hz_parties hp, ar_customers ac
+         WHERE     hp.PARTY_ID = hca.PARTY_ID
+               AND hca.CUST_ACCOUNT_ID = ac.CUSTOMER_ID
+               AND ac.CUSTOMER_ID = MMOH.BUYER_D )Full_Buyer_Name,
+       NVL((SELECT DECODE(StyleLineEO.TRACK_BASIS,'Style Name',StyleLineEO.STYLE_NAME,'Style Number',StyleLineEO.STYLE_NUMBER)
+       FROM PWC_MFG_BSS_STYLE_L StyleLineEO,
+            pwc_mfg_bss_buyer_h pwcmfgbssbuyerh,
+            PWC_MFG_BSS_SEASON_D SeasonDetailEO   
+       WHERE StyleLineEO.STYLE_IDENTIFIER = mmoh.STYLE
+       AND   pwcmfgbssbuyerh.BUYER_ID = MMOH.BUYER_D
+       --AND   pwcmfgbssbuyerh.ORG_ID = mmoda.final_mfg_org_id
+       AND   StyleLineEO.HEADER_ID = pwcmfgbssbuyerh.HEADER_ID
+       AND   SeasonDetailEO.LINE_ID = StyleLineEO.LINE_ID 
+       AND   rownum = 1),mmoh.STYLE) Current_Style,
+       NVL((SELECT SeasonDetailEO.SEASON_NAME
+       FROM PWC_MFG_BSS_STYLE_L StyleLineEO,
+            pwc_mfg_bss_buyer_h pwcmfgbssbuyerh,
+            PWC_MFG_BSS_SEASON_D SeasonDetailEO   
+       WHERE StyleLineEO.STYLE_IDENTIFIER = mmoh.STYLE
+       AND   pwcmfgbssbuyerh.BUYER_ID = MMOH.BUYER_D
+       --AND   pwcmfgbssbuyerh.ORG_ID = mmoda.final_mfg_org_id
+       and   SeasonDetailEO.SEASON_NAME = mmoh.season
+       AND   StyleLineEO.HEADER_ID = pwcmfgbssbuyerh.HEADER_ID
+       AND   SeasonDetailEO.LINE_ID = StyleLineEO.LINE_ID 
+       AND   rownum = 1), mmoh.season)Current_Season
+      
+  FROM MNJ_MFG_OSP_DEP_ASSIGN  MMODA,
+       MNJ_MFG_OSP_STN_LINE    MMOSL,
+       MNJ_MFG_OSP_HEADER      MMOH
+ WHERE MMODA.STN_LINE_ID = MMOSL.STN_LINE_ID
+   AND MMOSL.HEADER_ID   = MMOH.HEADER_ID
+   AND FINAL_DEPARTMENT = 'Washing'
+   and MMODA.FINAL_MFG_ORG_ID = 344
+   order by 1]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="BuyerName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BUYER_NAME"
+    Expression="BUYER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="BUYER_ID"
+    Expression="BUYER_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Style"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STYLE"
+    Expression="STYLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Season"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SEASON"
+    Expression="SEASON"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Brand"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BRAND"
+    Expression="BRAND"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FullBuyerName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FULL_BUYER_NAME"
+    Expression="FULL_BUYER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrentStyle"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="250"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CURRENT_STYLE"
+    Expression="CURRENT_STYLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrentSeason"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="250"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="CURRENT_SEASON"
+    Expression="CURRENT_SEASON"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

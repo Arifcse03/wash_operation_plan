@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RecipeVersionVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="mnj.mfg.model.lov.views.RecipeVersionVORowImpl"
+  ComponentClass="mnj.mfg.model.lov.views.RecipeVersionVOImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="mnj.mfg.model.lov.views.RecipeVersionVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery>
+    <![CDATA[SELECT mwh.header_id, 
+       mwh.doc_number, 
+       NVL (mwh.version_no, 0) version_no,
+       CASE
+          WHEN NVL (mwh.version_no, 0) = 0
+             THEN 'Original'
+          ELSE TO_CHAR (version_no)
+       END version_number
+       /* updated by arif 11/4/2021
+  FROM mnj_mfg_wash_recipe_h mwh
+ WHERE mwh.customer_id = :1
+   AND mwh.style_name = :2
+   AND mwh.season = :3
+   AND mwh.wash = :4
+   AND mwh.color = :5
+   AND mwh.sample_type = 'Shade Band'
+   AND mwh.header_id =
+          (SELECT MAX (mmwh.header_id)
+             FROM mnj_mfg_wash_recipe_h mmwh
+            WHERE mmwh.customer_id = :1
+              AND mmwh.style_name = :2
+              AND mmwh.season = :3
+              AND mmwh.wash = :4
+              AND mmwh.color = :5)*/
+ FROM mnj_mfg_wash_recipe_h mwh
+ WHERE mwh.system_id = :1
+   
+
+   AND mwh.sample_type = 'Shade Band'
+   AND mwh.header_id =
+          (SELECT MAX (mmwh.header_id)
+             FROM mnj_mfg_wash_recipe_h mmwh
+            WHERE mmwh.system_id= :1
+              
+            )]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="HeaderId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="HEADER_ID"
+    Expression="HEADER_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DocNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="DOC_NUMBER"
+    Expression="DOC_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StnNo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STN_NO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VersionNo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="VERSION_NO"
+    Expression="VERSION_NO"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VersionNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="40"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VERSION_NUMBER"
+    Expression="VERSION_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SelectVersion"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
+  <ViewLinkAccessor
+    Name="NewFillOperationPopUp"
+    ViewLink="mnj.mfg.model.lov.views.ReceipeVarsionOperationLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="EditPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="HederVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="HederVO1Iterator"/>
+    <iterator Binds="LineVOStyleDetail1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="LineVOStyleDetail1Iterator"/>
+    <iterator Binds="DetailRecipesVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="DetailRecipesVO1Iterator"/>
+    <searchRegion Binds="DetailRecipesVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="DetailRecipesVO1Query"/>
+    <iterator Binds="ChemiRecipiDetailVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="ChemiRecipiDetailVO1Iterator"/>
+    <searchRegion Binds="ChemiRecipiDetailVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ChemiRecipiDetailVO1Query"/>
+    <iterator Binds="ShipmentDetilVo1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="ShipmentDetilVo1Iterator"/>
+    <searchRegion Binds="ShipmentDetilVo1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ShipmentDetilVo1Query"/>
+    <iterator Binds="FillOperationsPopUpVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="FillOperationsPopUpVO1Iterator"/>
+    <iterator Binds="SubProcessVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="SubProcessVO1Iterator"/>
+    <searchRegion Binds="SubProcessVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="SubProcessVO1Query"/>
+    <iterator Binds="StnLovNewVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="StnLovNewVO1Iterator"/>
+    <searchRegion Binds="StnLovNewVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="StnLovNewVO1Query"/>
+    <iterator Binds="RecipeVersionVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="RecipeVersionVO1Iterator"/>
+    <searchRegion Binds="RecipeVersionVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="RecipeVersionVO1Query"/>
+    <iterator Binds="NewFillOperationPopUp1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="NewFillOperationPopUp1Iterator"/>
+    <iterator Binds="SubProcessPopUpVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="SubProcessPopUpVO1Iterator"/>
+    <searchRegion Binds="SubProcessPopUpVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="SubProcessPopUpVO1Query"/>
+    <searchRegion Binds="LineVOStyleDetail1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="LineVOStyleDetail1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="HederVO1Iterator" id="GwpGeNumber">
+      <AttrNames>
+        <Item Value="GwpGeNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HederVO1Iterator" id="GeDate">
+      <AttrNames>
+        <Item Value="GeDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <action IterBinding="LineVOStyleDetail1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="DetailRecipesVO1Iterator" id="DetailRecipesVO1">
+      <nodeDefinition DefName="mnj.mfg.model.views.DetailRecipesVO"
+                      Name="DetailRecipesVO10">
+        <AttrNames>
+          <Item Value="SqNum"/>
+          <Item Value="ParentOprId"/>
+          <Item Value="OcErpCode"/>
+          <Item Value="ComponentId"/>
+          <Item Value="StandardOperationCode"/>
+          <Item Value="ProcessFlow"/>
+          <Item Value="HelperSmv"/>
+          <Item Value="HeaderId"/>
+          <Item Value="OpLineId"/>
+          <Item Value="ObLinesId"/>
+          <Item Value="GwpGeObid"/>
+          <Item Value="MinorOperations"/>
+          <Item Value="MajorOperations"/>
+          <Item Value="Water"/>
+          <Item Value="Time"/>
+          <Item Value="Sequence"/>
+          <Item Value="Smv"/>
+          <Item Value="Target"/>
+          <Item Value="WashType"/>
+          <Item Value="Seq"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DetailRecipesVO1Iterator" id="Delete1"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="ChemiRecipiDetailVO1Iterator" id="ChemiRecipiDetailVO1">
+      <nodeDefinition DefName="mnj.mfg.model.views.ChemiRecipiDetailVO"
+                      Name="ChemiRecipiDetailVO10">
+        <AttrNames>
+          <Item Value="SNo"/>
+          <Item Value="ItemCode"/>
+          <Item Value="PerBatchQuantity"/>
+          <Item Value="PerBatchConsumption"/>
+          <Item Value="TotalConsumption"/>
+          <Item Value="OnHandQty"/>
+          <Item Value="ExcessShortage"/>
+          <Item Value="ItemDescription"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ChemiRecipiDetailVO1Iterator" id="Delete2"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="LineVOStyleDetail1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="DetailRecipesVO1Iterator" id="CreateInsert1"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="HederVO1Iterator" id="SalesorderId">
+      <AttrNames>
+        <Item Value="SalesorderId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HederVO1Iterator" id="OrgId">
+      <AttrNames>
+        <Item Value="OrgId"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ShipmentDetilVo1Iterator" id="ShipmentDetilVo1">
+      <nodeDefinition DefName="mnj.mfg.model.lov.views.ShipmentDetilVo"
+                      Name="ShipmentDetilVo10">
+        <AttrNames>
+          <Item Value="OrderNumber"/>
+          <Item Value="ShippedQuantity"/>
+          <Item Value="ScheduleShipDate"/>
+          <Item Value="CountryChange"/>
+          <Item Value="MultiSelect"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="findSelLines"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="findSelLines"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="populateOrderLines"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="populateOrderLines"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="saleOrderID" NDValue="" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="HederVO1Iterator" id="CustomerId">
+      <AttrNames>
+        <Item Value="CustomerId"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="populateOperations"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="populateOperations"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="setPopUpWhereClauseOperations"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod"
+                  MethodName="setPopUpWhereClauseOperations"
+                  IsViewObjectMethod="false"/>
+    <tree IterBinding="SubProcessVO1Iterator" id="SubProcessVO1">
+      <nodeDefinition DefName="mnj.mfg.model.views.SubProcessVO"
+                      Name="SubProcessVO10">
+        <AttrNames>
+          <Item Value="SubProcess"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SubProcessVO1Iterator" id="Delete3"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="StnLovNewVO1Iterator" id="StnLovNewVO1">
+      <nodeDefinition DefName="mnj.mfg.model.lov.views.StnLovNewVO"
+                      Name="StnLovNewVO10">
+        <AttrNames>
+          <Item Value="StnNo"/>
+          <Item Value="OrderedItem"/>
+          <Item Value="UserItemDescription"/>
+          <Item Value="OrderedQuantity"/>
+          <Item Value="SelectStn" Binds="SelectStn"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="StnLovNewVO1Iterator" id="SelectStn"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="SelectStn"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <methodAction id="populateBundlesStn"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="populateBundlesStn"
+                  IsViewObjectMethod="false"/>
+    <tree IterBinding="RecipeVersionVO1Iterator" id="RecipeVersionVO1">
+      <nodeDefinition DefName="mnj.mfg.model.lov.views.RecipeVersionVO"
+                      Name="RecipeVersionVO10">
+        <AttrNames>
+          <Item Value="DocNumber"/>
+          <Item Value="StnNo"/>
+          <Item Value="VersionNumber"/>
+          <Item Value="SelectVersion" Binds="SelectVersion"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="NewFillOperationPopUp1Iterator"
+          id="NewFillOperationPopUp1">
+      <nodeDefinition DefName="mnj.mfg.model.lov.views.NewFillOperationPopUp"
+                      Name="NewFillOperationPopUp10">
+        <AttrNames>
+          <Item Value="MajorOperations"/>
+          <Item Value="MinorOperations"/>
+          <Item Value="Smv"/>
+          <Item Value="Temperature"/>
+          <Item Value="Water"/>
+          <Item Value="MinTime"/>
+          <Item Value="Seq"/>
+          <Item Value="WashType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="RecipeVersionVO1Iterator" id="SelectVersion"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="SelectVersion"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="HederVO1Iterator" id="VarsionNew">
+      <AttrNames>
+        <Item Value="VarsionNew"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ChemiRecipiDetailVO1Iterator" id="CreateInsert2"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="SubProcessVO1Iterator" id="CreateInsert3"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="HederVO1Iterator" id="GwpGeId">
+      <AttrNames>
+        <Item Value="GwpGeId"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="createJob"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="createJob"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.createJob_AppModuleDataControl_dataProvider_createJob_result">
+      <NamedData NDName="HeaderId" NDType="int"/>
+    </methodAction>
+    <attributeValues IterBinding="HederVO1Iterator" id="Division">
+      <AttrNames>
+        <Item Value="Division"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="callCreateRouting"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="callCreateRouting"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.callCreateRouting_AppModuleDataControl_dataProvider_callCreateRouting_result">
+      <NamedData NDName="inventoryID" NDType="int"/>
+      <NamedData NDName="HeaderId" NDType="int"/>
+    </methodAction>
+    <methodAction id="CreateRequisition"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="CreateRequisition"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.CreateRequisition_AppModuleDataControl_dataProvider_CreateRequisition_result"/>
+    <methodAction id="callBOM" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="callBOM"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.callBOM_AppModuleDataControl_dataProvider_callBOM_result">
+      <NamedData NDName="inventoryID" NDType="int"/>
+      <NamedData NDName="HeaderID" NDType="int"/>
+    </methodAction>
+    <attributeValues IterBinding="HederVO1Iterator" id="PrNum">
+      <AttrNames>
+        <Item Value="PrNum"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="Populate" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="Populate"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="checkduplication"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="checkduplication"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="HeaderId" NDType="java.lang.String"/>
+      <NamedData NDName="BuyerId" NDType="java.lang.String"/>
+      <NamedData NDName="Style" NDType="java.lang.String"/>
+      <NamedData NDName="Season" NDType="java.lang.String"/>
+      <NamedData NDName="Wash" NDType="java.lang.String"/>
+      <NamedData NDName="Color" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="DeleteStyleDetail"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="DeleteStyleDetail"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="CallPost" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="CallPost"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.CallPost_AppModuleDataControl_dataProvider_CallPost_result">
+      <NamedData NDName="HeaderId" NDType="int"/>
+    </methodAction>
+    <methodAction id="CallCompletion"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="CallCompletion"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.CallCompletion_AppModuleDataControl_dataProvider_CallCompletion_result">
+      <NamedData NDName="HeaderId" NDType="int"/>
+    </methodAction>
+    <methodAction id="CreateMaterial"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="CreateMaterial"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.CreateMaterial_AppModuleDataControl_dataProvider_CreateMaterial_result">
+      <NamedData NDName="inventoryID" NDType="java.lang.String"/>
+      <NamedData NDName="HeaderID" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="HederVO1Iterator" id="TransactionDate">
+      <AttrNames>
+        <Item Value="TransactionDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HederVO1Iterator" id="JobName">
+      <AttrNames>
+        <Item Value="JobName"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="DetailRecipesVO1Iterator"
+                  Uses="LOV_MajorOperations" id="MajorOperations"/>
+    <list IterBinding="HederVO1Iterator" StaticList="false"
+          Uses="LOV_WashCatagory" id="WashCatagory" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="HederVO1Iterator" id="OrderedQty">
+      <AttrNames>
+        <Item Value="OrderedQty"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SubProcessPopUpVO1Iterator" id="SubProcessPopUpVO1">
+      <nodeDefinition DefName="mnj.mfg.model.lov.views.SubProcessPopUpVO"
+                      Name="SubProcessPopUpVO10">
+        <AttrNames>
+          <Item Value="MajorOperations"/>
+          <Item Value="MinorOperation"/>
+          <Item Value="SubProcess"/>
+          <Item Value="CheckBox" Binds="CheckBox"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="SubProcessPopUpVO1Iterator" id="CheckBox"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="CheckBox"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="y"/>
+        <Item Value="n"/>
+      </ValueList>
+    </button>
+    <attributeValues IterBinding="LineVOStyleDetail1Iterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="LineVOStyleDetail1Iterator" id="LineVOStyleDetail1">
+      <nodeDefinition DefName="mnj.mfg.model.views.LineVOStyleDetail"
+                      Name="LineVOStyleDetail10">
+        <AttrNames>
+          <Item Value="GwpGeId"/>
+          <Item Value="GwpGeWaslineId"/>
+          <Item Value="GwpGeObid"/>
+          <Item Value="Salesorder"/>
+          <Item Value="SoLine"/>
+          <Item Value="GwpUnitId"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="ObsNo"/>
+          <Item Value="Quantity"/>
+          <Item Value="PostStatus"/>
+          <Item Value="JobStatus"/>
+          <Item Value="WipEntityId"/>
+          <Item Value="JobReleasedDate"/>
+          <Item Value="WashName"/>
+          <Item Value="WashingUnitName"/>
+          <Item Value="WashingStartDate"/>
+          <Item Value="StitchingUnit"/>
+          <Item Value="StitchingStartDate"/>
+          <Item Value="ViewShipmentDetail"/>
+          <Item Value="TemCode"/>
+          <Item Value="Description"/>
+          <Item Value="ShipmentQty"/>
+          <Item Value="ShipmentDate"/>
+          <Item Value="CountryChange"/>
+          <Item Value="ItemId"/>
+          <Item Value="CurrentPlanQty"/>
+          <Item Value="JobName"/>
+          <Item Value="BalanceQty"/>
+          <Item Value="OrderedQuantity"/>
+          <Item Value="BpoId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <listOfValues StaticList="false" IterBinding="HederVO1Iterator"
+                  Uses="LOV_SystemId" id="SystemId"/>
+    <attributeValues IterBinding="HederVO1Iterator" id="Style">
+      <AttrNames>
+        <Item Value="Style"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HederVO1Iterator" id="Season">
+      <AttrNames>
+        <Item Value="Season"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HederVO1Iterator" id="Color">
+      <AttrNames>
+        <Item Value="Color"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HederVO1Iterator" id="Wash">
+      <AttrNames>
+        <Item Value="Wash"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LineVOStyleDetail"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="mnj.mfg.model.views.LineVOStyleDetailRowImpl"
+  ComponentClass="mnj.mfg.model.views.LineVOStyleDetailImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="StnLOV1"
+    ViewObjectName="mnj.mfg.model.lov.views.StnLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ItemCodeLov1"
+    ViewObjectName="mnj.mfg.model.lov.views.ItemCodeLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="WashingWorkArea1"
+    ViewObjectName="mnj.mfg.model.lov.views.WashingWorkArea"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="StitchingWA1"
+    ViewObjectName="mnj.mfg.model.lov.views.StitchingWA"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="StnLovNewVO1"
+    ViewObjectName="mnj.mfg.model.lov.views.StnLovNewVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="STN_LOV_VO1"
+    ViewObjectName="mnj.mfg.model.lov.views.STN_LOV_VO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ObsNo"
+    ListVOName="StnLovNewVO1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_ObsNo_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ObsNo"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="TemCode"/>
+      <Item Value="Quantity"/>
+      <Item Value="Description"/>
+      <Item Value="ItemId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="StnNo"/>
+      <Item Value="OrderedItem"/>
+      <Item Value="OrderedQuantity"/>
+      <Item Value="UserItemDescription"/>
+      <Item Value="OrderedItemId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StnNo"/>
+      <Item Value="OrderedItem"/>
+      <Item Value="UserItemDescription"/>
+      <Item Value="OrderedQuantity"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TemCode"
+    ListVOName="ItemCodeLov1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_TemCode_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TemCode"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+      <Item Value="Item"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Item"/>
+      <Item Value="Code"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_StitchingUnit"
+    ListVOName="StitchingWA1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_StitchingUnit_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="StitchingUnit"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="InvOrgName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="InvOrgName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="StitchingWACriteria"
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_WashingUnitName"
+    ListVOName="WashingWorkArea1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_WashingUnitName_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="WashingUnitName"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="InvOrgName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="InvOrgName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT LineEOStyleDetail.GWP_GE_ID, 
+       LineEOStyleDetail.GWP_GE_WASLINE_ID, 
+       LineEOStyleDetail.GWP_GE_OBID, 
+       LineEOStyleDetail.SALESORDER, 
+       LineEOStyleDetail.SO_LINE, 
+       LineEOStyleDetail.GWP_UNIT_ID, 
+       LineEOStyleDetail.LAST_UPDATE_DATE, 
+       LineEOStyleDetail.LAST_UPDATED_BY, 
+       LineEOStyleDetail.CREATION_DATE, 
+       LineEOStyleDetail.CREATED_BY, 
+       LineEOStyleDetail.OBS_NO, 
+       LineEOStyleDetail.QUANTITY, 
+       LineEOStyleDetail.POST_STATUS, 
+       LineEOStyleDetail.JOB_STATUS, 
+       LineEOStyleDetail.WIP_ENTITY_ID, 
+       LineEOStyleDetail.JOB_RELEASED_DATE, 
+       LineEOStyleDetail.WASH_NAME, 
+       LineEOStyleDetail.WASHING_UNIT_NAME, 
+       LineEOStyleDetail.WASHING_START_DATE, 
+       LineEOStyleDetail.STITCHING_UNIT, 
+       LineEOStyleDetail.STITCHING_START_DATE, 
+       LineEOStyleDetail.VIEW_SHIPMENT_DETAIL,
+        LineEOStyleDetail.Tem_Code,
+       (SELECT MSI.description
+                         FROM MTL_SYSTEM_ITEMS_KFV MSI 
+                        WHERE MSI.INVENTORY_ITEM_ID =  LineEOStyleDetail.item_id
+                          AND MSI.ORGANIZATION_ID = 353)  Description,
+        LineEOStyleDetail.Shipment_Qty,
+         LineEOStyleDetail.Shipment_Date,
+          LineEOStyleDetail.Country_Change,
+          LineEOStyleDetail.item_id,
+         LineEOStyleDetail.CURRENT_PLAN_QTY,
+        (select j.wip_entity_name
+          from WIP_DISCRETE_JOBS_V j,MTL_SYSTEM_ITEMS MSI 
+         where MSI.INVENTORY_ITEM_ID =  LineEOStyleDetail.item_id
+           and j.attribute2 = MSI.description||'-'||smr.SEASON
+           and j.attribute1 = LineEOStyleDetail.GWP_GE_ID
+           and j.STATUS_TYPE not in (7,12)
+           and rownum = 1) Job_Name,
+      LineEOStyleDetail.Balance_Qty,
+   round(LineEOStyleDetail.quantity*(((select avg(EXTRA_CUT_PERCENT)EXTRA_CUT_PERCENT 
+              from MNJ_MFG_RATIOPLAN mmr,MNJ_GWP_MFG_GEVALUATION smr
+              where smr.gwp_ge_id = LineEOStyleDetail.gwp_ge_id
+and mmr.buyer_id = smr.customer_id
+and mmr.STYLE = smr.STYLE
+and mmr.season = smr.season
+and mmr.COLOR = smr.color)/100)+1))Ordered_Quantity,
+LineEOStyleDetail.BPO_ID
+
+FROM MNJ_GWP_MFG_GE_OBSLINE LineEOStyleDetail,MNJ_GWP_MFG_GEVALUATION smr
+Where smr.GWP_GE_ID = LineEOStyleDetail.GWP_GE_ID
+order by SUBSTR(NVL(SUBSTR(  (select j.wip_entity_name
+          from WIP_DISCRETE_JOBS_V j,MTL_SYSTEM_ITEMS MSI 
+         where MSI.INVENTORY_ITEM_ID =  LineEOStyleDetail.item_id
+           and j.attribute2 = MSI.description||'-'||smr.SEASON
+           and j.attribute1 = LineEOStyleDetail.GWP_GE_ID
+           and j.STATUS_TYPE not in (7,12)
+           and rownum = 1), 0, INSTR(  (select j.wip_entity_name
+          from WIP_DISCRETE_JOBS_V j,MTL_SYSTEM_ITEMS MSI 
+         where MSI.INVENTORY_ITEM_ID =  LineEOStyleDetail.item_id
+           and j.attribute2 = MSI.description||'-'||smr.SEASON
+           and j.attribute1 = LineEOStyleDetail.GWP_GE_ID
+           and j.STATUS_TYPE not in (7,12)
+           and rownum = 1), '/')-1),  (select j.wip_entity_name
+          from WIP_DISCRETE_JOBS_V j,MTL_SYSTEM_ITEMS MSI 
+         where MSI.INVENTORY_ITEM_ID =  LineEOStyleDetail.item_id
+           and j.attribute2 = MSI.description||'-'||smr.SEASON
+           and j.attribute1 = LineEOStyleDetail.GWP_GE_ID
+           and j.STATUS_TYPE not in (7,12)
+           and rownum = 1)) ,
+              INSTR(NVL(SUBSTR(  (select j.wip_entity_name
+          from WIP_DISCRETE_JOBS_V j,MTL_SYSTEM_ITEMS MSI 
+         where MSI.INVENTORY_ITEM_ID =  LineEOStyleDetail.item_id
+           and j.attribute2 = MSI.description||'-'||smr.SEASON
+           and j.attribute1 = LineEOStyleDetail.GWP_GE_ID
+           and j.STATUS_TYPE not in (7,12)
+           and rownum = 1), 0, INSTR(  (select j.wip_entity_name
+          from WIP_DISCRETE_JOBS_V j,MTL_SYSTEM_ITEMS MSI 
+         where MSI.INVENTORY_ITEM_ID =  LineEOStyleDetail.item_id
+           and j.attribute2 = MSI.description||'-'||smr.SEASON
+           and j.attribute1 = LineEOStyleDetail.GWP_GE_ID
+           and j.STATUS_TYPE not in (7,12)
+           and rownum = 1), '/')-1),   (select j.wip_entity_name
+          from WIP_DISCRETE_JOBS_V j,MTL_SYSTEM_ITEMS MSI 
+         where MSI.INVENTORY_ITEM_ID =  LineEOStyleDetail.item_id
+           and j.attribute2 = MSI.description||'-'||smr.SEASON
+           and j.attribute1 = LineEOStyleDetail.GWP_GE_ID
+           and j.STATUS_TYPE not in (7,12)
+           and rownum = 1)),'-',-1)+1) asc]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="LineEOStyleDetail"
+    Entity="mnj.mfg.model.entities.LineEOStyleDetail"/>
+  <ViewAttribute
+    Name="GwpGeId"
+    PrecisionRule="true"
+    EntityAttrName="GwpGeId"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="GWP_GE_ID"/>
+  <ViewAttribute
+    Name="GwpGeWaslineId"
+    PrecisionRule="true"
+    EntityAttrName="GwpGeWaslineId"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="GWP_GE_WASLINE_ID"/>
+  <ViewAttribute
+    Name="GwpGeObid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="GwpGeObid"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="GWP_GE_OBID"/>
+  <ViewAttribute
+    Name="Salesorder"
+    PrecisionRule="true"
+    EntityAttrName="Salesorder"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="SALESORDER"/>
+  <ViewAttribute
+    Name="SoLine"
+    PrecisionRule="true"
+    EntityAttrName="SoLine"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="SO_LINE"/>
+  <ViewAttribute
+    Name="GwpUnitId"
+    PrecisionRule="true"
+    EntityAttrName="GwpUnitId"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="GWP_UNIT_ID"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="ObsNo"
+    PrecisionRule="true"
+    EntityAttrName="ObsNo"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="OBS_NO"
+    LOVName="LOV_ObsNo">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Quantity"
+    PrecisionRule="true"
+    EntityAttrName="Quantity"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="QUANTITY"/>
+  <ViewAttribute
+    Name="PostStatus"
+    PrecisionRule="true"
+    EntityAttrName="PostStatus"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="POST_STATUS"/>
+  <ViewAttribute
+    Name="JobStatus"
+    PrecisionRule="true"
+    EntityAttrName="JobStatus"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="JOB_STATUS"/>
+  <ViewAttribute
+    Name="WipEntityId"
+    PrecisionRule="true"
+    EntityAttrName="WipEntityId"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="WIP_ENTITY_ID"/>
+  <ViewAttribute
+    Name="JobReleasedDate"
+    PrecisionRule="true"
+    EntityAttrName="JobReleasedDate"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="JOB_RELEASED_DATE"/>
+  <ViewAttribute
+    Name="WashName"
+    PrecisionRule="true"
+    EntityAttrName="WashName"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="WASH_NAME"/>
+  <ViewAttribute
+    Name="WashingUnitName"
+    PrecisionRule="true"
+    EntityAttrName="WashingUnitName"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="WASHING_UNIT_NAME"
+    LOVName="LOV_WashingUnitName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WashingStartDate"
+    PrecisionRule="true"
+    EntityAttrName="WashingStartDate"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="WASHING_START_DATE"/>
+  <ViewAttribute
+    Name="StitchingUnit"
+    PrecisionRule="true"
+    EntityAttrName="StitchingUnit"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="STITCHING_UNIT"
+    LOVName="LOV_StitchingUnit">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StitchingStartDate"
+    PrecisionRule="true"
+    EntityAttrName="StitchingStartDate"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="STITCHING_START_DATE"/>
+  <ViewAttribute
+    Name="ViewShipmentDetail"
+    PrecisionRule="true"
+    EntityAttrName="ViewShipmentDetail"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="VIEW_SHIPMENT_DETAIL"/>
+  <ViewAttribute
+    Name="TemCode"
+    PrecisionRule="true"
+    AliasName="TEM_CODE"
+    EntityAttrName="TemCode"
+    EntityUsage="LineEOStyleDetail"
+    LOVName="LOV_TemCode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Description"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="DESCRIPTION"
+    Expression="DESCRIPTION"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShipmentQty"
+    PrecisionRule="true"
+    AliasName="SHIPMENT_QTY"
+    EntityAttrName="ShipmentQty"
+    EntityUsage="LineEOStyleDetail"/>
+  <ViewAttribute
+    Name="ShipmentDate"
+    PrecisionRule="true"
+    AliasName="SHIPMENT_DATE"
+    EntityAttrName="ShipmentDate"
+    EntityUsage="LineEOStyleDetail"/>
+  <ViewAttribute
+    Name="CountryChange"
+    PrecisionRule="true"
+    AliasName="COUNTRY_CHANGE"
+    EntityAttrName="CountryChange"
+    EntityUsage="LineEOStyleDetail"/>
+  <ViewAttribute
+    Name="ItemId"
+    PrecisionRule="true"
+    EntityAttrName="ItemId"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="ITEM_ID"/>
+  <ViewAttribute
+    Name="CurrentPlanQty"
+    PrecisionRule="true"
+    AliasName="CURRENT_PLAN_QTY"
+    EntityAttrName="CurrentPlanQty"
+    EntityUsage="LineEOStyleDetail"/>
+  <ViewAttribute
+    Name="JobName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="JOB_NAME"
+    Expression="JOB_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BalanceQty"
+    PrecisionRule="true"
+    AliasName="BALANCE_QTY"
+    EntityAttrName="BalanceQty"
+    EntityUsage="LineEOStyleDetail"/>
+  <ViewAttribute
+    Name="OrderedQuantity"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ORDERED_QUANTITY"
+    Expression="ORDERED_QUANTITY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BpoId"
+    PrecisionRule="true"
+    EntityAttrName="BpoId"
+    EntityUsage="LineEOStyleDetail"
+    AliasName="BPO_ID"/>
+</ViewObject>

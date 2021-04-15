@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DetailRecipesVO_VS_SubProcessPopUpVO_VL"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="mnj.mfg.model.lov.views.DetailRecipesVO_VS_SubProcessPopUpVO_VL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="DetailRecipesVO"
+    Cardinality="1"
+    Owner="mnj.mfg.model.views.DetailRecipesVO"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="DetailRecipesVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.views.DetailRecipesVO.MajorOperations"/>
+      <Item Value="mnj.mfg.model.views.DetailRecipesVO.MinorOperations"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SubProcessPopUpVO"
+    Cardinality="-1"
+    Owner="mnj.mfg.model.lov.views.SubProcessPopUpVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SubProcessPopUpVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.lov.views.SubProcessPopUpVO.MajorOperations"/>
+      <Item Value="mnj.mfg.model.lov.views.SubProcessPopUpVO.MinorOperation"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

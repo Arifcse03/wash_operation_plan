@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Fillbpo1"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="mnj.mfg.model.views.Fillbpo1_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery>
+    <![CDATA[SELECT DISTINCT
+OOLA.BPO_ID,
+OOLA.BPO,
+LOOHA.ITEM_ID Item_Code,
+msib.description Item_Description,
+MSIb.INVENTORY_ITEM_ID Item_Id,
+OOLA.QTY Quantity,
+(SELECT SUM (TO_NUMBER (wl.ATTRIBUTE4))
+FROM MNJ_MFG_ISSUE_REC_WASH_H wh, MNJ_ISSUE_REC_WASH_REC_L wl
+WHERE wh.header_id = wl.header_id
+AND wl.PRODUCTION_TYPE = 'Bulk'
+AND wH.POC_ID = OOHA.POC_ID
+AND LOOHA.SYSTEM_ID = :1
+)
+Current_Plan_Qty,
+OOLA.SHIPDATE
+FROM XX_OM_POC_H_T OOHA,
+XX_OM_POC_L_T LOOHA,
+XX_OM_BPO_INFO_T OOLA,
+
+MTL_SYSTEM_ITEMS_b MSIb
+WHERE OOHA.POC_ID = LOOHA.POC_ID
+AND LOOHA.FOB_ID = OOLA.FOB_ID
+AND MSIb.INVENTORY_ITEM_ID = LOOHA.ITEM_ID
+AND MSIb.ORGANIZATION_ID = 353
+AND OOLA.CLASSIFICATION = 'BPO'
+
+AND OOLA.BPO_ID IN (SELECT BPO_ID
+FROM mnj_mfg_osp_header h,
+mnj_mfg_osp_stn_line l
+WHERE H.POC_ID = OOHA.POC_ID
+AND LOOHA.SYSTEM_ID = :1)
+/*-added by arif
+AND OOLA.BPO_ID IN (SELECT BPO_ID
+FROM MNJ_ISSUE_REC_WASH_REC_L wl
+
+WHERE OOLA.BPO_ID = wl.BPO_ID
+)
+*/
+AND NOT EXISTS
+(SELECT *
+FROM MNJ_GWP_MFG_GEVALUATION h, MNJ_GWP_MFG_GE_OBSLINE l
+WHERE h.GWP_GE_ID = l.GWP_GE_ID
+AND OOLA.BPO_ID = l.BPO_ID
+AND LOOHA.SYSTEM_ID = :1)]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="BpoId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="BPO_ID"
+    Expression="BPO_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Bpo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BPO"
+    Expression="BPO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ItemCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ITEM_CODE"
+    Expression="ITEM_CODE"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ItemDescription"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ITEM_DESCRIPTION"
+    Expression="ITEM_DESCRIPTION"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ItemId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ITEM_ID"
+    Expression="ITEM_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Quantity"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="QUANTITY"
+    Expression="QUANTITY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrentPlanQty"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="CURRENT_PLAN_QTY"
+    Expression="CURRENT_PLAN_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Shipdate"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    AliasName="SHIPDATE"
+    Expression="SHIPDATE"
+    SQLType="DATE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

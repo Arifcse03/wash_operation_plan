@@ -1,0 +1,6 @@
+The following Synchronization Actions were performed successfully:
+
+Entity :LineEOStyleDetail
+  Create Attribute for column: SHIPMENT_QTY
+  Create Attribute for column: SHIPMENT_DATE
+  Create Attribute for column: COUNTRY_CHANGE

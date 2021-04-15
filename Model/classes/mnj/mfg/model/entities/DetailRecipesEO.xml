@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DetailRecipesEO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="MNJ_MFG_ROUTING_PLAN_DET"
+  AliasName="DetailRecipesEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="mnj.mfg.model.entities.DetailRecipesEOImpl">
+  <DesignTime>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="OperationId"
+    Precision="15"
+    Scale="0"
+    ColumnName="OPERATION_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OperatLineId"
+    Precision="15"
+    Scale="0"
+    ColumnName="OPERAT_LINE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CompanyId"
+    Precision="1"
+    ColumnName="COMPANY_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DivisionId"
+    Precision="6"
+    ColumnName="DIVISION_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PlanId"
+    Precision="8"
+    ColumnName="PLAN_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ProcessId"
+    Precision="3"
+    Scale="0"
+    ColumnName="PROCESS_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OcId"
+    Precision="12"
+    ColumnName="OC_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TcTopside"
+    Precision="10"
+    ColumnName="TC_TOPSIDE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TcInside"
+    Precision="10"
+    ColumnName="TC_INSIDE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MachineType"
+    Precision="6"
+    ColumnName="MACHINE_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="NoOfMachines"
+    Precision="10"
+    Scale="2"
+    ColumnName="NO_OF_MACHINES"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FootId"
+    Precision="6"
+    ColumnName="FOOT_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GuageId"
+    Precision="6"
+    ColumnName="GUAGE_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="NoOfWp"
+    Precision="10"
+    Scale="2"
+    ColumnName="NO_OF_WP"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Smv"
+    Precision="10"
+    Scale="2"
+    ColumnName="SMV"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UserId"
+    Precision="15"
+    ColumnName="USER_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UserDate"
+    ColumnName="USER_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TerminalId"
+    Precision="15"
+    ColumnName="TERMINAL_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LineNum"
+    Precision="3"
+    Scale="0"
+    ColumnName="LINE_NUM"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Target"
+    Precision="100"
+    ColumnName="TARGET"
+    SQLType="NUMERIC"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Points"
+    Precision="10"
+    Scale="2"
+    ColumnName="POINTS"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="NdlTime"
+    Precision="10"
+    Scale="2"
+    ColumnName="NDL_TIME"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TotTime"
+    Precision="10"
+    Scale="2"
+    ColumnName="TOT_TIME"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SpInst"
+    Precision="255"
+    ColumnName="SP_INST"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ResourceId"
+    Precision="10"
+    ColumnName="RESOURCE_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PMachineType"
+    Precision="6"
+    ColumnName="P_MACHINE_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ResourceVal"
+    Precision="10"
+    Scale="0"
+    ColumnName="RESOURCE_VAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ResourceId2"
+    Precision="10"
+    ColumnName="RESOURCE_ID2"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ResourceVal2"
+    Precision="10"
+    Scale="0"
+    ColumnName="RESOURCE_VAL2"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Dposted"
+    Precision="1"
+    ColumnName="DPOSTED"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TrgtGwp"
+    Precision="10"
+    Scale="2"
+    ColumnName="TRGT_GWP"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CmtQty"
+    Precision="10"
+    Scale="0"
+    ColumnName="CMT_QTY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CmtJobrate"
+    Precision="10"
+    Scale="4"
+    ColumnName="CMT_JOBRATE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="15"
+    Scale="0"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="15"
+    Scale="0"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OcType"
+    Precision="6"
+    ColumnName="OC_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MenPower"
+    ColumnName="MEN_POWER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WorkerType"
+    Precision="1"
+    ColumnName="WORKER_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SqNum"
+    Precision="6"
+    Scale="0"
+    ColumnName="SQ_NUM"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ParentOprId"
+    ColumnName="PARENT_OPR_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OcErpCode"
+    Precision="12"
+    ColumnName="OC_ERP_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ComponentId"
+    ColumnName="COMPONENT_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="StandardOperationCode"
+    Precision="25"
+    ColumnName="STANDARD_OPERATION_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ProcessFlow"
+    Precision="25"
+    ColumnName="PROCESS_FLOW"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="HelperSmv"
+    Precision="10"
+    Scale="3"
+    ColumnName="HELPER_SMV"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OperatOblineId"
+    ColumnName="OPERAT_OBLINE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EmbNoStitch"
+    Precision="9"
+    Scale="0"
+    ColumnName="EMB_NO_STITCH"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SNo"
+    Precision="4"
+    Scale="0"
+    ColumnName="S_NO"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="5"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="HeaderId"
+    Precision="20"
+    Scale="0"
+    ColumnName="HEADER_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="21"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OpLineId"
+    IsNotNull="true"
+    Precision="20"
+    Scale="0"
+    ColumnName="OP_LINE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET"
+    PrimaryKey="true"
+    ChangeIndicator="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="21"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ObLinesId"
+    ColumnName="OB_LINES_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GwpGeObid"
+    Precision="20"
+    Scale="0"
+    ColumnName="GWP_GE_OBID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="21"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MinorOperations"
+    Precision="25"
+    ColumnName="MINOR_OPERATIONS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MajorOperations"
+    Precision="25"
+    ColumnName="MAJOR_OPERATIONS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Water"
+    Precision="25"
+    ColumnName="WATER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Time"
+    Precision="25"
+    ColumnName="TIME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Sequence"
+    Precision="25"
+    ColumnName="SEQUENCE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WashType"
+    Precision="250"
+    ColumnName="WASH_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Seq"
+    ColumnName="SEQ"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_MFG_ROUTING_PLAN_DET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="ChemiRecipiDetailEo"
+    Association="mnj.mfg.model.entities.MnjMfgChemicalDetFkAssoc"
+    AssociationEnd="mnj.mfg.model.entities.MnjMfgChemicalDetFkAssoc.ChemiRecipiDetailEo"
+    AssociationOtherEnd="mnj.mfg.model.entities.MnjMfgChemicalDetFkAssoc.DetailRecipesEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SubProcessEO"
+    Association="mnj.mfg.model.entities.MnjMfgSubproDetFkAssoc"
+    AssociationEnd="mnj.mfg.model.entities.MnjMfgSubproDetFkAssoc.SubProcessEO"
+    AssociationOtherEnd="mnj.mfg.model.entities.MnjMfgSubproDetFkAssoc.DetailRecipesEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="HederEO"
+    Association="mnj.mfg.model.entities.MnjRoutingPlanDetFkAssoc"
+    AssociationEnd="mnj.mfg.model.entities.MnjRoutingPlanDetFkAssoc.HederEO"
+    AssociationOtherEnd="mnj.mfg.model.entities.MnjRoutingPlanDetFkAssoc.DetailRecipesEO"
+    Type="mnj.mfg.model.entities.HederEOImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="OpLineIdPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="OP_LINE_ID_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.DetailRecipesEO.OpLineId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC00333831">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C00333831"/>
+      <Attr Name="_checkCondition" Value='"OP_LINE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.DetailRecipesEO.OpLineId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="HeaderIdFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="HEADER_ID_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="HEADER_ID_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.DetailRecipesEO.HeaderId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="MnjMfgRoutingFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="MNJ_GWP_MFG_GE_OBSLINE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="MNJ_MFG_ROUTING_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.DetailRecipesEO.GwpGeObid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="MnjMfgRoutingPlanObdetFk">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="OB_LINES_ID_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="MNJ_MFG_ROUTING_PLAN_OBDET_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.DetailRecipesEO.ObLinesId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="MnjRoutingPlanDetFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="MNJ_GWP_MFG_GEVALUATION_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="MNJ_ROUTING_PLAN_DET_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.DetailRecipesEO.HeaderId"/>
+    </AttrArray>
+  </Key>
+</Entity>

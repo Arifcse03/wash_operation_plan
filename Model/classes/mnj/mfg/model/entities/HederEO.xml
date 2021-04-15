@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="HederEO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="MNJ_GWP_MFG_GEVALUATION"
+  AliasName="HederEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="mnj.mfg.model.entities.HederEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="GwpGeId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="GWP_GE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GEVALUATION"
+    PrimaryKey="true"
+    ChangeIndicator="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GwpGeNumber"
+    Precision="15"
+    Scale="0"
+    ColumnName="GWP_GE_NUMBER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GeDate"
+    ColumnName="GE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+    <TransientExpression><![CDATA[adf.currentDate]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="SalesorderId"
+    Precision="8"
+    ColumnName="SALESORDER_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DoubleWash"
+    Precision="1"
+    ColumnName="DOUBLE_WASH"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AvgGarmentDay"
+    Precision="7"
+    Scale="0"
+    ColumnName="AVG_GARMENT_DAY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Remarks"
+    Precision="400"
+    ColumnName="REMARKS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="400"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    Precision="15"
+    Scale="0"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="15"
+    Scale="0"
+    ColumnName="CREATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GeStatus"
+    Precision="10"
+    ColumnName="GE_STATUS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SoHeaderId"
+    ColumnName="SO_HEADER_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrgId"
+    ColumnName="ORG_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CustomerId"
+    Precision="15"
+    Scale="0"
+    ColumnName="CUSTOMER_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Quantity"
+    Precision="15"
+    Scale="0"
+    ColumnName="QUANTITY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Brand"
+    Precision="500"
+    ColumnName="BRAND"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Season"
+    Precision="500"
+    ColumnName="SEASON"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Division"
+    Precision="500"
+    ColumnName="DIVISION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Osp"
+    Precision="50"
+    ColumnName="OSP"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Style"
+    Precision="250"
+    ColumnName="STYLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Wash"
+    Precision="250"
+    ColumnName="WASH"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VersionNo"
+    ColumnName="VERSION_NO"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="VersionDate"
+    ColumnName="VERSION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Color"
+    Precision="250"
+    ColumnName="COLOR"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TransactionDate"
+    ColumnName="TRANSACTION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WashCatagory"
+    Precision="100"
+    ColumnName="WASH_CATAGORY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SystemId"
+    ColumnName="SYSTEM_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MNJ_GWP_MFG_GEVALUATION">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="LineEOStyleDetail"
+    Association="mnj.mfg.model.entities.MnjGwpMfgObslineFkAssoc"
+    AssociationEnd="mnj.mfg.model.entities.MnjGwpMfgObslineFkAssoc.LineEOStyleDetail"
+    AssociationOtherEnd="mnj.mfg.model.entities.MnjGwpMfgObslineFkAssoc.HederEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="DetailRecipesEO"
+    Association="mnj.mfg.model.entities.MnjRoutingPlanDetFkAssoc"
+    AssociationEnd="mnj.mfg.model.entities.MnjRoutingPlanDetFkAssoc.DetailRecipesEO"
+    AssociationOtherEnd="mnj.mfg.model.entities.MnjRoutingPlanDetFkAssoc.HederEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="MnjGwpMfgGevaluationPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="MNJ_GWP_MFG_GEVALUATION_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.HederEO.GwpGeId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC00333783">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C00333783"/>
+      <Attr Name="_checkCondition" Value='"GWP_GE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.HederEO.GwpGeId"/>
+    </AttrArray>
+  </Key>
+</Entity>

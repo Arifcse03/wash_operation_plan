@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="SearchPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="HederVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="HederVO1Iterator"/>
+    <searchRegion Criteria="HederVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="HederVO1Iterator" id="HederVOCriteriaQuery"/>
+    <invokeAction Binds="setSessionValues" id="setSessionVal" Refresh="always"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="HederVO1Iterator" id="HederVO1">
+      <nodeDefinition DefName="mnj.mfg.model.views.HederVO" Name="HederVO10">
+        <AttrNames>
+          <Item Value="GwpGeNumber"/>
+          <Item Value="GeDate"/>
+          <Item Value="SalesorderId"/>
+          <Item Value="DoubleWash"/>
+          <Item Value="AvgGarmentDay"/>
+          <Item Value="Remarks"/>
+          <Item Value="CustomerName"/>
+          <Item Value="Style"/>
+          <Item Value="Season"/>
+          <Item Value="Wash"/>
+          <Item Value="VarsionNew"/>
+          <Item Value="PrNum"/>
+         
+          
+          <Item Value="JobName"/>
+          <Item Value="Color"/>
+         
+          <Item Value="SystemId"/>
+        
+         
+         
+          
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <action IterBinding="HederVO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="HederVO1Iterator" id="setCurrentRowWithKey"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDType="java.lang.String"/>
+    </action>
+    <methodAction id="VersionCreation"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="VersionCreation"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.VersionCreation_AppModuleDataControl_dataProvider_VersionCreation_result"/>
+    <methodAction id="setSessionValues"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSessionValues"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="orgId" NDValue="#{viewScope.OrgId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="userId" NDValue="#{viewScope.UserId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respId" NDValue="#{viewScope.RespId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respAppl" NDValue="#{viewScope.RespApplId}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="Delete_Header"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="Delete_Header"
+                  IsViewObjectMethod="false"/>
+    <action IterBinding="HederVO1Iterator" id="setCurrentRowWithKeyValue"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>
